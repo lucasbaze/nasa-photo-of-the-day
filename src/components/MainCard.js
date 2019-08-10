@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { useHttp } from '../hooks/http.js';
+var moment = require('moment');
 
 const MainImageContainer = styled.div`
     display: flex;
@@ -29,6 +31,25 @@ const MainContent = styled.div`
 `;
 
 const MainCard = props => {
+    let today = moment().format('YYYY-MM-DD');
+    let apiKey = 'RP2C4x40YT5dHBWemEdiGdjG1VXlqzNF75t8NUH9';
+    let url = `https://api.nasa.gov/planetary/apod?date=${today}&api_key=${apiKey}`;
+    const [loading, fetchedData] = useHttp(url, []);
+
+    useEffect(() => {
+        if (fetchedData == null) {
+            return;
+        } else {
+            props.updateCurrentImage({
+                copyright: fetchedData.copyright,
+                date: fetchedData.date,
+                explanation: fetchedData.explanation,
+                url: fetchedData.url,
+                title: fetchedData.title,
+            });
+        }
+    }, [fetchedData]);
+
     return (
         <MainImageContainer>
             <MainImage url={props.currentImage.url} />
