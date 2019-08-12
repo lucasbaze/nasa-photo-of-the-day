@@ -19,7 +19,7 @@ const CardCreator = props => {
     const [loading, fetchedData] = useHttp(url, props.date);
 
     useEffect(() => {
-        if (fetchedData == null || fetchedData.media_type == 'video') {
+        if (fetchedData === null || fetchedData.media_type === 'video') {
             return;
         } else {
             setData({
