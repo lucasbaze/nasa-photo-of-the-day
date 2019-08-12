@@ -56,7 +56,11 @@ const MainCard = props => {
             <MainContent>
                 <h2>{props.currentImage.title}</h2>
                 <p>{props.currentImage.date}</p>
-                <p>{props.copyright ? props.copyright : 'Copyright free'}</p>
+                <p>
+                    {props.currentImage.copyright
+                        ? props.currentImage.copyright
+                        : 'Copyright free'}
+                </p>
                 <p>{props.currentImage.explanation}</p>
             </MainContent>
         </MainImageContainer>

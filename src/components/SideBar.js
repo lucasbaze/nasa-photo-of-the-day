@@ -10,13 +10,32 @@ var moment = require('moment');
 //Styles
 
 const DateContainer = styled.div`
-    position: absolute;
-    z-index: 100;
     background-color: white;
+    width: 100%;
+    height: 4vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    .react-datepicker-wrapper {
+        flex: 1;
+        .react-datepicker__input-container {
+            width: 100%;
+            input {
+                width: 100%;
+                text-align: center;
+                border: 1px solid black;
+                height: 4vh;
+                background-color: black;
+                color: white;
+                font-weight: 700;
+                font-size: 1.2rem;
+                cursor: pointer;
+            }
+        }
+    }
 `;
 
 const CardContainer = styled.div`
-    margin-top: 20px;
     display: flex;
     flex-flow: row wrap;
 `;
@@ -29,7 +48,7 @@ const SideBarContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    background-color: red;
+    background-color: black;
     overflow: scroll;
 `;
 

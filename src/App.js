@@ -14,15 +14,15 @@ const App = () => {
 
     return (
         <div className="App">
+            <div className="side-bar">
+                <SideBar updateCurrentImage={updateCurrentImage} />
+            </div>
             <div className="main-container">
                 <Header />
                 <MainCard
                     currentImage={currentImage}
                     updateCurrentImage={updateCurrentImage}
                 />
-            </div>
-            <div className="side-bar">
-                <SideBar updateCurrentImage={updateCurrentImage} />
             </div>
         </div>
     );
