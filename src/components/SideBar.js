@@ -53,8 +53,8 @@ const SideBarContainer = styled.div`
 `;
 
 const SideBar = props => {
-    const [endDate, setEndDate] = useState('2019-08-09');
-    const [startDate, setStartDate] = useState('2019-07-25');
+    const [endDate, setEndDate] = useState('2019-06-30');
+    const [startDate, setStartDate] = useState('2019-06-01');
     const [dateRange, setDateRange] = useState([]);
 
     useEffect(() => {

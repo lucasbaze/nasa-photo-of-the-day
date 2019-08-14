@@ -6,6 +6,9 @@ import Header from './components/Header.js';
 import SideBar from './components/SideBar.js';
 
 const App = () => {
+    // const [startDate, setStartDate] = useState('2019-06-07');
+    // const [endDate, setEndDate] = useState('2019-06-15');
+    // const [dateRange, setDateRange] = useState([]);
     const [currentImage, setCurrentImage] = useState({});
 
     const updateCurrentImage = value => {

@@ -19,10 +19,11 @@ const CardCreator = props => {
     const [loading, fetchedData] = useHttp(url, props.date);
 
     useEffect(() => {
-        if (fetchedData === null || fetchedData.media_type === 'video') {
+        if (fetchedData === null) {
             return;
         } else {
             setData({
+                media_type: fetchedData.media_type,
                 copyright: fetchedData.copyright,
                 date: fetchedData.date,
                 explanation: fetchedData.explanation,
@@ -34,7 +35,11 @@ const CardCreator = props => {
 
     return (
         <StyledDiv
-            url={data.url}
+            url={
+                data.media_type !== 'video'
+                    ? data.url
+                    : 'https://developers.google.com/maps/documentation/maps-static/images/error-image-generic.png'
+            }
             onClick={() => props.updateCurrentImage(data)}
         />
     );
