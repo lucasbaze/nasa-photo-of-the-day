@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Modal } from '@material-ui/core';
+import { Modal, Checkbox } from '@material-ui/core';
 
 import styled from 'styled-components';
 
@@ -27,6 +27,7 @@ const StyledHeader = styled.div`
 
 const Header = props => {
     const [open, setOpen] = useState(false);
+    const [checked, setChecked] = useState(false);
 
     const modalStyles = makeStyles({
         paper: {
@@ -90,6 +91,14 @@ const Header = props => {
                         <a target="_blank" href="https://lambdaschool.com">
                             Lambda School
                         </a>
+                        <Checkbox
+                            checked={checked}
+                            onChange={event => setChecked(event.target.checked)}
+                            value="checked"
+                            inputProps={{
+                                'aria-label': 'primary checkbox',
+                            }}
+                        />
                     </p>
                 </div>
             </Modal>

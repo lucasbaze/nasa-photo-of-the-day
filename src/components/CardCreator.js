@@ -13,6 +13,7 @@ const StyledDiv = styled.div`
 
 const CardCreator = props => {
     const [data, setData] = useState({});
+    const [title, setTitle] = useState({});
 
     let url = `https://api.nasa.gov/planetary/apod?date=${props.date}&api_key=${apiKey}`;
 
